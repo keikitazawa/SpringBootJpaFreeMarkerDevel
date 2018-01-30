@@ -24,5 +24,5 @@ public class UuidToStringConverter implements AttributeConverter<UUID, String>{
     @Override
     public UUID convertToEntityAttribute(String dbData) {
         return dbData == null ? null : UUID.fromString(dbData);
-    }
+    } 
 }

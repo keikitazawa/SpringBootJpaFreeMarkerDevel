@@ -14,7 +14,7 @@ apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
 
-group = 'org.fslabs.springbootjpafreemarkerdevel'
+group = 'org.fslabs'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
 
@@ -23,45 +23,33 @@ repositories {
 }
 
 dependencies {
+	//actuator
+	compile('org.springframework.boot:spring-boot-starter-actuator')
+	compile('org.springframework.boot:spring-boot-actuator-docs')
+	
 	// aop
 	compile('org.springframework.boot:spring-boot-starter-aop')
 	
-	// db
-	compile('org.springframework.boot:spring-boot-starter-data-jpa')
-	compile('org.springframework.boot:spring-boot-starter-jdbc')
-	
 	// web
-	compile('org.springframework.boot:spring-boot-starter-web')
+	compile('org.springframework.boot:spring-boot-starter-cache')
 	compile('org.springframework.boot:spring-boot-starter-freemarker')
-	//compile('org.springframework.boot:spring-boot-starter-cache')
+	compile('org.springframework.boot:spring-boot-starter-web')
+	
+	// database
+	compile('org.springframework.boot:spring-boot-starter-data-jpa')
 	
 	// security
 	compile('org.springframework.boot:spring-boot-starter-security')
 	compile('org.springframework.session:spring-session')
 	
-	compile('org.springframework.boot:spring-boot-starter-mail')
+	// devtools
+	runtime('org.springframework.boot:spring-boot-devtools')
 	
-	// actuator
-	compile('org.springframework.boot:spring-boot-starter-actuator')
-    compile('org.springframework.boot:spring-boot-actuator-docs')
-
-	// devtool
-	compile('org.springframework.boot:spring-boot-devtools')
-	compile('org.springframework.boot:spring-boot-starter-integration');
+	// database runtime
+	runtime('com.h2database:h2')
+	runtime('org.postgresql:postgresql')
 	
-	// log
-	//compile('org.bgee.log4jdbc-log4j2:log4jdbc-log4j2-jdbc4.1');
-	//compile('com.googlecode.log4jdbc:log4jdbc')
-	//compile('org.slf4j:slf4j-log4j12')
-	
-	// https://mvnrepository.com/artifact/commons-beanutils/commons-beanutils
-	//compile group: 'commons-beanutils', name: 'commons-beanutils', version: '1.9.3'
-	
-   	runtime('org.postgresql:postgresql')
-
 	compileOnly('org.springframework.boot:spring-boot-configuration-processor')
-	//compileOnly('org.projectlombok:lombok:1.16.18')
-
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 	testCompile('org.springframework.security:spring-security-test')
 }

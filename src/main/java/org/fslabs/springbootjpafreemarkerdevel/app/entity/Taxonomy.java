@@ -9,6 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -45,102 +47,64 @@ public class Taxonomy implements Serializable {
 	@ManyToOne(targetEntity=TaxonomyHeader.class)
 	@JoinColumn(name="hid", referencedColumnName="id")
 	private TaxonomyHeader taxonomyHeaders;
-
-	/**
-	 * @return modified
-	 */
+	
+//	@ManyToMany
+//	@JoinTable(
+//		name="taxonomyrelations",
+//		joinColumns=@JoinColumn(name="pid", referencedColumnName="id"),
+//		inverseJoinColumns=@JoinColumn(name="cid", referencedColumnName="id")
+//	)
+//	private Taxonomy taxonomyParents;
+//	
+//	@ManyToMany
+//	@JoinTable(
+//		name="taxonomyrelations",
+//		joinColumns=@JoinColumn(name="cid", referencedColumnName="id"),
+//		inverseJoinColumns=@JoinColumn(name="pid", referencedColumnName="id")
+//	)
+//	private Taxonomy taxonomyChilds;
+	
+	/** getter/setter **/
 	public Timestamp getModified() {
 		return modified;
 	}
-
-	/**
-	 * @return deleted
-	 */
 	public Timestamp getDeleted() {
 		return deleted;
 	}
-
-	/**
-	 * @return hid
-	 */
-//	public String getHid() {
-//		return hid;
-//	}
-
-	/**
-	 * @return id
-	 */
-	public String getId() {
-		return id;
-	}
-
-	/**
-	 * @return name
-	 */
 	public String getName() {
 		return name;
 	}
-
-	/**
-	 * @return weight
-	 */
 	public String getWeight() {
 		return weight;
 	}
-
-	/**
-	 * @return taxonomyHeaders
-	 */
 	public TaxonomyHeader getTaxonomyHeaders() {
 		return taxonomyHeaders;
 	}
-
-	/**
-	 * @param modified セットする modified
-	 */
+//	public Taxonomy getTaxonomyParents() {
+//		return taxonomyParents;
+//	}
+//	public Taxonomy getTaxonomyChilds() {
+//		return taxonomyChilds;
+//	}
 	public void setModified(Timestamp modified) {
 		this.modified = modified;
 	}
-
-	/**
-	 * @param deleted セットする deleted
-	 */
 	public void setDeleted(Timestamp deleted) {
 		this.deleted = deleted;
 	}
-
-	/**
-	 * @param hid セットする hid
-	 */
-//	public void setHid(String hid) {
-//		this.hid = hid;
-//	}
-
-	/**
-	 * @param id セットする id
-	 */
-	public void setId(String id) {
-		this.id = id;
-	}
-
-	/**
-	 * @param name セットする name
-	 */
 	public void setName(String name) {
 		this.name = name;
 	}
-
-	/**
-	 * @param weight セットする weight
-	 */
 	public void setWeight(String weight) {
 		this.weight = weight;
 	}
-
-	/**
-	 * @param taxonomyHeaders セットする taxonomyHeaders
-	 */
 	public void setTaxonomyHeaders(TaxonomyHeader taxonomyHeaders) {
 		this.taxonomyHeaders = taxonomyHeaders;
 	}
+//	public void setTaxonomyParents(Taxonomy taxonomyParents) {
+//		this.taxonomyParents = taxonomyParents;
+//	}
+//	public void setTaxonomyChilds(Taxonomy taxonomyChilds) {
+//		this.taxonomyChilds = taxonomyChilds;
+//	}
 }

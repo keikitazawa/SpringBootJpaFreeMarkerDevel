@@ -44,7 +44,7 @@ spring:
   # 1.5.9で必須に
     database-platform: org.hibernate.dialect.PostgreSQLDialect
 
-  #
+  # session
   session:
     store-type: hash-map
     
