@@ -63,7 +63,10 @@ endpoints:
 logging:
 #  file: logs/info.log
   level:
-    org.springframework.web: INFO
+    root: info
+    org.springframework.web: info
+    logging.level.org.hibernate: info
+    org.springframework.boot.autoconfigure.logging.AutoConfigurationReportLoggingInitializer: off
                           
 # security
 security:
